@@ -9,6 +9,7 @@ from scripts_pasport_eye.text_recognition import TessRecogn
 from scripts_pasport_eye.search_data_with_cv2 import SDWCV2
 from scripts_pasport_eye.script_return_abs_path import ReturnAbsPathPict
 from scripts_pasport_eye.script_convert_image import ReturnPathConvertImage
+import dlib
 
 def main():
     ap = ap = argparse.ArgumentParser(
@@ -76,6 +77,7 @@ def main():
         # возврат словаря с данными(изображение без фото лица, само фото лица) + дескрипторы лица
         #dict_image_no_face_and_cropped_face, list_face_descriptor = FaceWork(path_pict_no_bg, visualization=False).main()
         dict_image_no_face_and_cropped_face = path_pict_no_bg
+        img = dlib.load_rgb_image(path_pict_no_bg)
         # возврат списка выделенных данных с помощью cv2
         data_list_gorizontal, data_list_vertical = SDWCV2(dict_image_no_face_and_cropped_face, visualization=False).main()
         # возврат списка распознанных с помощью tesseract данных
