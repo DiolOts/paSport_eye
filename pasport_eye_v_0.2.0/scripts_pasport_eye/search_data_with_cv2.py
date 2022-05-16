@@ -3,10 +3,12 @@
 import cv2
 import imutils
 import numpy as np
+import dlib
 
 class SDWCV2:
-    def __init__(self, dict_image_no_face_and_cropped_face, visualization=False):
-        self.img = dict_image_no_face_and_cropped_face#["image_no_face"]
+    def __init__(self, dict_image_no_face_and_cropped_face: str, visualization=False):
+        
+        self.img =  dlib.load_rgb_image(dict_image_no_face_and_cropped_face)
         self.visualization = visualization
 
     def return_image_preparation(self, image, gorizontal=False, vertical=False):
