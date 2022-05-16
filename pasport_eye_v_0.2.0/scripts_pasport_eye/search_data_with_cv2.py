@@ -5,7 +5,7 @@ import imutils
 import numpy as np
 
 class SDWCV2:
-    def __init__(self, dict_image_no_face_and_cropped_face: dict, visualization=False):
+    def __init__(self, dict_image_no_face_and_cropped_face, visualization=False):
         self.img = dict_image_no_face_and_cropped_face#["image_no_face"]
         self.visualization = visualization
 
