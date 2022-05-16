@@ -74,7 +74,8 @@ def main():
         path_pict_no_bg = RemoveBG(path_cache_pict, visualization=False).main()
 
         # возврат словаря с данными(изображение без фото лица, само фото лица) + дескрипторы лица
-        dict_image_no_face_and_cropped_face, list_face_descriptor = FaceWork(path_pict_no_bg, visualization=False).main()
+        #dict_image_no_face_and_cropped_face, list_face_descriptor = FaceWork(path_pict_no_bg, visualization=False).main()
+        dict_image_no_face_and_cropped_face = path_pict_no_bg
         # возврат списка выделенных данных с помощью cv2
         data_list_gorizontal, data_list_vertical = SDWCV2(dict_image_no_face_and_cropped_face, visualization=False).main()
         # возврат списка распознанных с помощью tesseract данных
@@ -88,8 +89,8 @@ def main():
                 args,
                 output,
                 abs_path_pict,
-                dict_image_no_face_and_cropped_face,
-                list_face_descriptor,
+                #dict_image_no_face_and_cropped_face,
+                #list_face_descriptor,
                 list_all_data_gorizontal,
                 list_all_data_vertical
         ).main()
